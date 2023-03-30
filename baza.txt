@@ -1,0 +1,2 @@
+ID							LOGIN							PASSWORD							NAME							SURNAME							AGE							NICKNAME							LSO							ROLE
+0							alex							-6299522919883006917							alex							frost							21							alex							Thu Mar 30 14:13:35 2023							Admin

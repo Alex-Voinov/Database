@@ -21,7 +21,7 @@ def create_db() -> None:
     with open(CONSTPATH, "rt", encoding="utf-8") as pathchange:
         oldfile: list = pathchange.readlines()
     for index in range(len(oldfile)):
-        if "PATH: str = " in oldfile[index]:
+        if oldfile[index].startswith("PATH: str = "):
             oldfile[index] = f"PATH: str = r'{path}'\n"
             break
     with open(CONSTPATH, "wt", encoding="utf-8") as writing:

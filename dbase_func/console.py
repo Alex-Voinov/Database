@@ -76,22 +76,23 @@ def checking_settings(args: tuple[str]) -> None:
         'lang_esp': ('Switches language to Spanish.', set_lang_esp),
     }
 
-    if 'lang_rus' in args:
-        print('Специальный запуск')
-    elif 'lang_eng' in args:
-        print('Special Launch')
-    elif 'lang_esp':
-        print('asdf')
-    else:
-        localized_print('Special Launch')
-    for arg in map(str.lower, args):
-        if arg in DATA_SETTINGS:
-            DATA_SETTINGS[arg][KEY_FUNCK_ACTIVE]()
-            localized_print(DATA_SETTINGS[arg][KEY_DESCRIPTION])
-        elif arg not in (FILEPATH, 'main.py'):
-            localized_print('Additional startup parameter', end = ' ')
-            print(arg, end = ' ')
-            localized_print('not found in the database')
-    localized_print('Recognized settings have been applied successfully')
-    localized_print('restart the application to continue')
-    exit()
+    if len(args) > 1:
+        if 'lang_rus' in args:
+            print('Специальный запуск')
+        elif 'lang_eng' in args:
+            print('Special Launch')
+        elif 'lang_esp':
+            print('Lancio speciale')
+        else:
+            localized_print('Special Launch')
+        for arg in map(str.lower, args):
+            if arg in DATA_SETTINGS:
+                DATA_SETTINGS[arg][KEY_FUNCK_ACTIVE]()
+                localized_print(DATA_SETTINGS[arg][KEY_DESCRIPTION])
+            elif arg not in (FILEPATH, 'main.py'):
+                localized_print('Additional startup parameter', end = ' ')
+                print(arg, end = ' ')
+                localized_print('not found in the database')
+        localized_print('Recognized settings have been applied successfully')
+        localized_print('restart the application to continue')
+        exit()
